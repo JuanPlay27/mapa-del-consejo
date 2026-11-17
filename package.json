@@ -1,0 +1,10 @@
+{
+  "name": "mapa-del-consejo",
+  "private": true,
+  "type": "module",
+  "description": "Juego cooperativo en tiempo real sobre ISO/IEC 38500 (Grupo 2, Gestión de TIC, UFPS).",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 8080"
+  }
+}

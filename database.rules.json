@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "mapa": {
+      ".read": "now < 1796101200000",
+      ".write": "now < 1796101200000",
+      "players": {
+        "$uid": {
+          "name": { ".validate": "newData.isString() && newData.val().length <= 20" }
+        }
+      },
+      "tiles": {
+        "$tileId": { ".validate": "$tileId.matches(/^t[0-9]{2}$/)" }
+      }
+    }
+  }
+}

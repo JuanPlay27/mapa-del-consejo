@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El mapa del Consejo · Pantalla</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect x=%274%27 y=%2710%27 width=%2756%27 height=%2746%27 rx=%2716%27 fill=%27%2336e2d0%27 stroke=%27%230b3b4a%27 stroke-width=%274%27/%3E%3Crect x=%2714%27 y=%2720%27 width=%2736%27 height=%2726%27 rx=%279%27 fill=%27%230b2a3a%27/%3E%3Ccircle cx=%2725%27 cy=%2732%27 r=%274%27 fill=%27%237dfcff%27/%3E%3Ccircle cx=%2739%27 cy=%2732%27 r=%274%27 fill=%27%237dfcff%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="screen">
+<header class="s-top">
+  <div class="s-brand">El mapa del Consejo<small>ISO/IEC 38500 · Gobierno de TI e IA · Grupo 2 · UFPS</small></div>
+  <div class="s-pills">
+    <span class="pill s-mode" id="modePill" hidden>MODO ENSAYO</span>
+    <span class="pill" id="connPill" hidden>Sin conexión</span>
+    <span class="pill" id="playersPill">0 conectados</span>
+    <span class="pill" id="timerPill">4:00</span>
+    <span class="pill" id="progressPill">0 / 31</span>
+  </div>
+</header>
+
+<main class="s-map" id="map">
+  <svg class="s-links" id="links" aria-hidden="true"></svg>
+  <div class="s-col" id="colLeft"></div>
+  <section class="s-core" aria-label="Progreso del consejo">
+    <div class="s-core-nova" id="coreNova"></div>
+    <div class="s-core-title" id="coreTitle">ISO/IEC 38500<span>Gobierno de TI · 2024</span></div>
+    <div class="s-progress">
+      <div class="s-bar"><div class="s-bar-fill" id="barFill"></div></div>
+      <div class="s-progress-text" id="progressText">0 de 31 fichas</div>
+    </div>
+    <ul class="s-feed" id="feed" aria-live="polite"></ul>
+  </section>
+  <div class="s-col" id="colRight"></div>
+</main>
+
+<section class="overlay s-lobby" id="lobby" aria-label="Sala de espera">
+  <div class="s-lobby-grid">
+    <div class="s-qr-card">
+      <div class="s-qr" id="qr"></div>
+      <div class="s-url" id="joinUrl"></div>
+    </div>
+    <div class="s-lobby-info">
+      <h1>Únete al <em>Consejo</em></h1>
+      <ol class="s-steps">
+        <li><b>1</b>Escanea el QR con la cámara del celular</li>
+        <li><b>2</b>Escribe tu nombre y entra</li>
+        <li><b>3</b>Te llega una ficha: ponla en la rama correcta del mapa</li>
+      </ol>
+      <p class="s-steps" style="font-size:1.25em;margin-top:0">Nadie tiene todas las fichas: el mapa solo se completa si todo el consejo colabora.</p>
+      <div class="s-count"><span id="lobbyCount">0</span> consejeros conectados</div>
+      <div class="s-names" id="lobbyNames"></div>
+    </div>
+  </div>
+</section>
+
+<section class="overlay s-end" id="end" hidden aria-live="polite"></section>
+
+<div class="s-host" id="host" hidden aria-label="Controles del anfitrión">
+  <button class="btn ghost" id="hToggle" title="Tecla H">Anfitrión (H)</button>
+  <div class="s-host-actions">
+  <button class="btn" id="hStart" title="Tecla E">Empezar (E)</button>
+  <button class="btn pink" id="hFinish" title="Tecla T">Terminar (T)</button>
+  <button class="btn ghost" id="hQr" title="Tecla Q">Mostrar QR (Q)</button>
+  <button class="btn ghost" id="hRelease" title="Tecla L">Liberar fichas (L)</button>
+  <button class="btn ghost" id="hReset" title="Tecla R dos veces">Reiniciar (R R)</button>
+  <button class="btn ghost" id="hBots" title="Tecla B">+5 bots de ensayo (B)</button>
+  <button class="btn ghost" id="hNoBots">Quitar bots</button>
+  <button class="btn ghost" id="hMute" title="Tecla M">Sonido (M)</button>
+  <button class="btn ghost" id="hFull" title="Tecla F">Pantalla completa (F)</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="js/screen.js"></script>
+</body>
+</html>

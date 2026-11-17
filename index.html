@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1464">
+<title>El mapa del Consejo · ISO/IEC 38500</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect x=%274%27 y=%2710%27 width=%2756%27 height=%2746%27 rx=%2716%27 fill=%27%2336e2d0%27 stroke=%27%230b3b4a%27 stroke-width=%274%27/%3E%3Crect x=%2714%27 y=%2720%27 width=%2736%27 height=%2726%27 rx=%279%27 fill=%27%230b2a3a%27/%3E%3Ccircle cx=%2725%27 cy=%2732%27 r=%274%27 fill=%27%237dfcff%27/%3E%3Ccircle cx=%2739%27 cy=%2732%27 r=%274%27 fill=%27%237dfcff%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="player">
+<div class="p-app">
+  <div class="p-top" id="top" hidden>
+    <span class="pill p-me" id="meName"></span>
+    <span class="pill" id="pTimer">4:00</span>
+    <span class="pill" id="pProgress">0/31</span>
+    <span class="p-conn" id="conn"><i></i><span id="connText">En línea</span></span>
+  </div>
+
+  <section class="p-card p-center" id="vLoading">
+    <div class="p-nova bob" id="novaLoading"></div>
+    <p class="p-text">Conectando con el consejo…</p>
+  </section>
+
+  <section class="p-card p-center" id="vJoin" hidden>
+    <div class="p-nova bob" id="novaJoin"></div>
+    <h1 class="p-title">Únete al Consejo</h1>
+    <p class="p-text">Hoy tú eres parte de la alta dirección. Entre todos vamos a armar el mapa de la ISO/IEC 38500.</p>
+    <form class="p-field" id="joinForm" autocomplete="off">
+      <label for="nameInput">Tu nombre</label>
+      <input id="nameInput" maxlength="16" required placeholder="Ej.: Laura" enterkeyhint="go">
+      <button class="btn pink" type="submit" style="margin-top:10px">Entrar al consejo ▶</button>
+    </form>
+  </section>
+
+  <section class="p-card p-center" id="vLobby" hidden>
+    <div class="p-nova bob" id="novaLobby"></div>
+    <h1 class="p-title" id="lobbyTitle">¡Listo!</h1>
+    <p class="p-text">Ya eres parte del consejo. Cuando empiece te llegará una <b>ficha</b>: decide en qué rama del mapa va.</p>
+    <p class="p-text"><b>Nadie tiene todas las fichas.</b> El mapa solo se completa si todos colaboran: ¡pregunten y ayúdense en voz alta!</p>
+    <div class="p-stat" id="lobbyCount">0</div>
+    <p class="p-text" style="margin-top:-8px">consejeros conectados</p>
+    <button class="p-link" id="changeName" type="button" style="color:#5b21b6">Cambiar mi nombre</button>
+  </section>
+
+  <section id="vPlay" hidden style="display:flex;flex-direction:column;gap:14px">
+    <div class="p-card p-tile" id="tileCard">
+      <div class="p-tile-label">Tu ficha</div>
+      <div class="p-tile-text" id="tileText"></div>
+    </div>
+    <p class="p-question">¿En qué rama del mapa va?</p>
+    <div class="p-branches" id="branchButtons"></div>
+    <div class="p-hint" id="hint" hidden><b>Pista</b><span id="hintText"></span></div>
+    <button class="btn ghost p-pass" id="passBtn" type="button">No sé: pasar la ficha a otro consejero</button>
+  </section>
+
+  <section class="p-card p-center" id="vWait" hidden>
+    <div class="p-nova bob" id="novaWait"></div>
+    <h2 class="p-title" id="waitTitle"></h2>
+    <p class="p-text" id="waitText"></p>
+    <ul class="p-list" id="waitList"></ul>
+    <p class="p-text" id="waitMine"></p>
+  </section>
+
+  <section class="p-card p-center" id="vDone" hidden>
+    <div class="p-nova bob" id="novaDone"></div>
+    <h2 class="p-title" id="doneTitle"></h2>
+    <p class="p-text" id="doneText"></p>
+    <div class="p-stat" id="doneMine">0</div>
+    <p class="p-text" style="margin-top:-8px">fichas colocadas por ti</p>
+    <p class="p-text"><b>¡Ahora miren la pantalla!</b></p>
+  </section>
+
+  <p class="p-small">ISO/IEC 38500 · Grupo 2 · Gestión de TIC · UFPS</p>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="js/player.js"></script>
+</body>
+</html>
